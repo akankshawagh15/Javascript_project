@@ -1,0 +1,96 @@
+<html>
+
+<head>
+    <style>
+        button {
+            background-color: grey;
+            width: 220px;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body style="width:700px; margin: auto; border:3px solid blue">
+    <h1 style="margin-left: 20px; margin-top: -1px;">Reservation System</h1><br>
+
+    <form style="margin-left: 20px; margin-top: -10px;" onsubmit="return myfunc()">
+        <fieldset style="width:620px; margin: auto;">
+            <legend><h3>General Information</h3></legend>
+            Arrival date: <input type="date" id="date"> &nbsp;&nbsp;<span id="spanDate"></span><br><br>
+            Nights: <input type="text" placeholder="3" id="nights"> &nbsp;&nbsp;<span id="spanNights"></span><br><br>
+            Adults:
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select><br><br>
+            Children:
+            <select>
+                <option>@</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend><h3>Preferences</h3></legend>
+            Room type:
+            <input type="radio" name="room"> Standard
+            <input type="radio" name="room"> Business
+            <input type="radio" name="room"> Suite<br><br>
+            Bed Type:
+            <input type="radio" name="type"> King
+            <input type="radio" name="type"> Double<br><br>
+            <label for="smoking">Smoking:</label>
+            <input type="checkbox" id="smoking">
+        </fieldset>
+
+        <fieldset>
+            <legend><h3>Contact Information</h3></legend>
+            Name: <input type="text" id="name"> <span id="spanName1"></span><br><br>
+            Email: <input type="text" id="email"> <span id="spanName2"></span><br><br>
+            Phone: <input type="text" id="phone">
+        </fieldset>
+
+        <button type="submit" style="width:200px; margin: auto; border:2px solid black;">Submit Reservation</button>
+        <button type="reset" style="width:200px; margin: auto;">Clear</button>
+    </form>
+
+    <script>
+        function myfunc() {
+            var y = document.getElementById("nights").value;
+            var z = document.getElementById("name").value;
+            var a = document.getElementById("email").value;
+
+            if (y === "") {
+                let text = "Nights must be required";
+                document.getElementById("spanNights").innerHTML = text;
+            }
+
+            if (z === "") {
+                let text1 = "Name is required";
+                document.getElementById("spanName1").innerHTML = text1;
+            }
+
+            if (a === "") {
+                let text2 = "Email address is required";
+                document.getElementById("spanName2").innerHTML = text2;
+            }
+
+            // Add more validations if needed
+
+            // Return false to prevent form submission when there are errors
+            return !(y === "" || z === "" || a === "");
+        }
+    </script>
+</body>
+
+</html>
